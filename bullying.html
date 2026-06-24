@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hurting through screens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .btn-primary {
+            background-color: #4f46e5;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4338ca;
+            transform: scale(1.05);
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #4f46e5;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #4f46e5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation    التنقل -->
+    <nav class="bg-indigo-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-shield-alt text-2xl"></i>
+                <span class="text-xl font-bold">Against Bullying</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-indigo-200 transition">Home</a>
+                <a href="#types" class="hover:text-indigo-200 transition">Types</a>
+                <a href="#effects" class="hover:text-indigo-200 transition">Effects</a>
+                <a href="#advice" class="hover:text-indigo-200 transition">Advice</a>
+                <a href="#stories" class="hover:text-indigo-200 transition">Stories</a>
+            </div>
+            <button class="md:hidden text-xl" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-indigo-700 px-4 py-2" id="mobileMenu">
+            <a href="#home" class="block py-2 hover:text-indigo-200 transition">Home</a>
+            <a href="#types" class="block py-2 hover:text-indigo-200 transition">Types</a>
+            <a href="#effects" class="block py-2 hover:text-indigo-200 transition">Effects</a>
+            <a href="#advice" class="block py-2 hover:text-indigo-200 transition">Advice</a>
+            <a href="#stories" class="block py-2 hover:text-indigo-200 transition">Stories</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section  الشريطه الاولي-->
+    <section id="home" class="py-16 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 fade-in">
+                <h1 class="text-4xl md:text-4xl font-bold mb-4 typewriter">Hurting through screens</h1>
+                <p class="text-xl mb-6">An awareness platform to recognize the dangers of cyberbullying and how to confront it to build a safe digital community</p>
+                <div class="flex space-x-4">
+                    <button class="btn-primary text-white px-6 py-3 rounded-lg font-medium" onclick="scrollToSection('types')">
+                        Start the Journey
+                    </button>
+                    <button class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition" onclick="scrollToSection('stories')">
+                        Share Your Story
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://img.freepik.com/free-vector/cyberbullying-concept-illustration_114360-8139.jpg" alt="Cyberbullying" class="w-full max-w-md floating">
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Cyberbullying -->
+    <section id="types" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Types of Cyberbullying</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Type 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Harassment', 'Sending offensive or threatening messages repeatedly through social media or text messages')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Harassment</h3>
+                    <p class="text-gray-600">Sending offensive or threatening messages repeatedly</p>
+                </div>
+                
+                <!-- Type 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Defamation', 'Spreading false or embarrassing information about someone to harm their reputation')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Defamation</h3>
+                    <p class="text-gray-600">Spreading false or embarrassing information</p>
+                </div>
+                
+                <!-- Type 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Hacking & Impersonation', 'Hacking personal accounts and posting inappropriate content in the victim\'s name')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-user-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Hacking & Impersonation</h3>
+                    <p class="text-gray-600">Hacking accounts and posting inappropriate content</p>
+                </div>
+                
+                <!-- Type 4 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Exclusion', 'Deliberately excluding someone from online groups or activities')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-user-slash"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Exclusion</h3>
+                    <p class="text-gray-600">Deliberately excluding someone from groups</p>
+                </div>
+                
+                <!-- Type 5 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Catfishing', 'Creating fake accounts to deceive or harass others')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Catfishing</h3>
+                    <p class="text-gray-600">Creating fake accounts to deceive others</p>
+                </div>
+                
+                <!-- Type 6 -->
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md card-hover transition cursor-pointer" onclick="showTypeDetails('Cyberstalking', 'Monitoring and harassing the victim continuously online')">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-binoculars"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Cyberstalking</h3>
+                    <p class="text-gray-600">Monitoring and harassing someone continuously</p>
+                </div>
+            </div>
+            
+            <!-- Type Details Modal -->
+            <div id="typeDetailsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="bg-white rounded-xl p-6 max-w-md w-full mx-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 id="modalTypeTitle" class="text-2xl font-bold text-indigo-600"></h3>
+                        <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <p id="modalTypeDescription" class="text-gray-700 mb-4"></p>
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h4 class="font-bold text-indigo-600 mb-2">How to deal with it?</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Don't respond to offensive messages</li>
+                            <li>Save evidence (screenshots)</li>
+                            <li>Report the bullying account</li>
+                            <li>Tell someone you trust</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Effects of Cyberbullying -->
+    <section id="effects" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Effects of Cyberbullying</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Psychological Effects -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-brain text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-600">Psychological Effects</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-400 mt-1 mr-2"></i>
+                            <span>Anxiety and depression</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-400 mt-1 mr-2"></i>
+                            <span>Low self-esteem</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-400 mt-1 mr-2"></i>
+                            <span>Sleep and eating disorders</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-400 mt-1 mr-2"></i>
+                            <span>Suicidal thoughts in severe cases</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-red-400 mt-1 mr-2"></i>
+                            <span>Feelings of isolation and loneliness</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Social Effects -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-users text-blue-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600">Social Effects</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+                            <span>Withdrawal from social activities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+                            <span>Difficulty forming friendships</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+                            <span>Decline in academic or work performance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+                            <span>Damage to personal reputation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-400 mt-1 mr-2"></i>
+                            <span>Loss of trust in others</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Statistics -->
+            <div class="mt-12 bg-indigo-600 text-white rounded-xl p-6 shadow-lg">
+                <h3 class="text-xl font-bold mb-4 text-center">Shocking Cyberbullying Statistics</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">37%</div>
+                        <p>of youth have experienced cyberbullying</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">60%</div>
+                        <p>of victims don't tell anyone about being bullied</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold mb-2">3x</div>
+                        <p>more likely to experience depression</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advice Section -->
+    <section id="advice" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">How to Deal with Cyberbullying</h2>
+            
+            <div class="flex flex-col md:flex-row gap-8 mb-12">
+                <!-- For Victims -->
+                <div class="flex-1 bg-indigo-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-user-shield text-indigo-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-indigo-600">If You're a Victim</h3>
+                    </div>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                        <li class="pl-2">Don't respond to bullies - that's what they want</li>
+                        <li class="pl-2">Save evidence (screenshots, messages)</li>
+                        <li class="pl-2">Report the bullying account to the platform</li>
+                        <li class="pl-2">Block bullies to stop the harassment</li>
+                        <li class="pl-2">Tell someone you trust (parents, teacher, friend)</li>
+                        <li class="pl-2">Focus on positive activities you enjoy</li>
+                        <li class="pl-2">Remember the problem is with the bully, not you</li>
+                    </ol>
+                </div>
+                
+                <!-- For Bystanders -->
+                <div class="flex-1 bg-green-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-hands-helping text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-600">If You're a Witness</h3>
+                    </div>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                        <li class="pl-2">Don't share or repost offensive content</li>
+                        <li class="pl-2">Support the victim and let them know they're not alone</li>
+                        <li class="pl-2">Encourage the victim to report the incident</li>
+                        <li class="pl-2">Report the offensive content if possible</li>
+                        <li class="pl-2">Confront the bully politely if you feel safe</li>
+                        <li class="pl-2">Spread positive messages to counter negativity</li>
+                        <li class="pl-2">Be a true friend to those being bullied</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Prevention Tips -->
+            <div class="bg-purple-50 rounded-xl p-6">
+                <div class="flex items-center mb-4">
+                    <div class="bg-purple-100 p-3 rounded-full mr-4">
+                        <i class="fas fa-lock text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-600">Prevention Tips</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                        <i class="fas fa-user-secret text-purple-400 mt-1 mr-2"></i>
+                        <span>Protect your personal information</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                        <i class="fas fa-sliders-h text-purple-400 mt-1 mr-2"></i>
+                        <span>Adjust privacy settings</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                        <i class="fas fa-heart text-purple-400 mt-1 mr-2"></i>
+                        <span>Be kind in the digital world</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm flex items-start">
+                        <i class="fas fa-thumbs-up text-purple-400 mt-1 mr-2"></i>
+                        <span>Spread positivity and help stop bullying</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Interactive Quiz -->
+            <div class="mt-12 bg-indigo-600 text-white rounded-xl p-6 shadow-lg">
+                <h3 class="text-xl font-bold mb-4 text-center">Test Your Knowledge: Is This Cyberbullying?</h3>
+                <div id="quizContainer">
+                    <p class="mb-4 text-center">We'll present different scenarios - choose whether each one constitutes cyberbullying</p>
+                    <div id="quizQuestion" class="bg-white text-gray-800 p-4 rounded-lg mb-4 font-medium"></div>
+                    <div class="flex justify-center space-x-4">
+                        <button onclick="answerQuiz(true)" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Yes</button>
+                        <button onclick="answerQuiz(false)" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg">No</button>
+                    </div>
+                </div>
+                <div id="quizResult" class="hidden mt-4 text-center"></div>
+                <div id="quizProgress" class="mt-4 text-center text-indigo-200"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Stories & Experiences</h2>
+            
+            <div class="mb-8 bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4 text-indigo-600">Share Your Story</h3>
+                <p class="mb-4">Sharing your experiences helps others learn and feel they're not alone. You can share anonymously if you prefer.</p>
+                
+                <form id="storyForm" class="space-y-4">
+                    <div>
+                        <label for="storyType" class="block mb-2 font-medium">Story Type</label>
+                        <select id="storyType" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="victim">I was a victim of bullying</option>
+                            <option value="witness">I witnessed bullying</option>
+                            <option value="recovered">I overcame a bullying experience</option>
+                            <option value="advice">Advice for dealing with bullying</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="storyContent" class="block mb-2 font-medium">Share Your Story</label>
+                        <textarea id="storyContent" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Write your experience here..."></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="anonymous" class="mr-2">
+                        <label for="anonymous">Post anonymously</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary text-white px-6 py-3 rounded-lg font-medium w-full">Share Experience</button>
+                </form>
+            </div>
+            
+            <h3 class="text-xl font-bold mb-4 text-indigo-600">Others' Stories</h3>
+            <div id="storiesList" class="space-y-6">
+                <!-- Stories will be loaded here -->
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-indigo-100 text-indigo-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael (Anonymous)</h4>
+                            <p class="text-sm text-gray-500">1 week ago</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">I received offensive messages from classmates in WhatsApp groups. At first I tried to ignore them but it got worse. I told my dad who spoke to the school administration. The problem was resolved and I'm much happier now.</p>
+                    <div class="mt-3 flex space-x-2">
+                        <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-thumbs-up"></i> Like</button>
+                        <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-comment"></i> Comment</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-green-100 text-green-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah</h4>
+                            <p class="text-sm text-gray-500">3 days ago</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">I saw my friend being bullied on Instagram for posting a makeup-free photo. I supported her and encouraged her not to delete it, but to report the offensive comments. We also started a campaign about real beauty together and got lots of support.</p>
+                    <div class="mt-3 flex space-x-2">
+                        <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-thumbs-up"></i> Like</button>
+                        <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-comment"></i> Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pledge Section قسم التعهد -->
+    <section class="py-16 bg-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Join the "Hurting through screens" Initiative</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Pledge to be part of the solution, not the problem. Spread positivity and help make the internet a better place for everyone</p>
+            
+            <div class="bg-white text-gray-800 rounded-xl p-6 max-w-2xl mx-auto mb-8">
+                <h3 class="text-xl font-bold mb-4 text-indigo-600">I pledge to:</h3>
+                <ul class="space-y-3 text-left">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+                        <span>Treat others online with the same respect as in real life</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+                        <span>Not share or post content that may offend others</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+                        <span>Support those being bullied and help them get help</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+                        <span>Report bullying incidents I witness</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-indigo-400 mt-1 mr-2"></i>
+                        <span>Share positive content that lifts others up</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <button id="pledgeBtn" class="btn-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-indigo-700 transition">
+                I Pledge! <i class="fas fa-signature ml-2"></i>
+            </button>
+            
+            <div id="pledgeCount" class="mt-6 text-indigo-200">
+                <span class="font-bold text-white">1,243</span> people have joined the initiative
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section ثلاثة اقسام للمساعده -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-indigo-600">Help Resources</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Helplines</h3>
+                    <p class="mb-4">Contact professionals if you need psychological support</p>
+                    <ul class="space-y-2 text-indigo-600">
+                        <li>Child Helpline: 116111</li>
+                        <li>Psychological Counseling: 920033350</li>
+                        <li>Cybercrime Reporting Center</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Educational Materials</h3>
+                    <p class="mb-4">Learn more about cyberbullying and how to prevent it</p>
+                    <button class="btn-primary text-white px-6 py-2 rounded-lg font-medium">Educational Booklets</button>
+                    <button class="bg-white text-indigo-600 border border-indigo-600 px-6 py-2 rounded-lg font-medium mt-2">Awareness Videos</button>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl shadow-md text-center">
+                    <div class="text-indigo-600 text-4xl mb-4">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Useful Websites</h3>
+                    <p class="mb-4">Platforms providing information and services to combat bullying</p>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-indigo-600 hover:underline">Ministry of Education</a></li>
+                        <li><a href="#" class="text-indigo-600 hover:underline">Protection Association</a></li>
+                        <li><a href="#" class="text-indigo-600 hover:underline">Safety Platform</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-shield-alt text-2xl text-indigo-400"></i>
+                        <span class="text-xl font-bold">Against Bullying</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">An awareness platform against cyberbullying</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Against Bullying. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Scroll to section smoothly
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Show type details modal
+        function showTypeDetails(title, description) {
+            document.getElementById('modalTypeTitle').textContent = title;
+            document.getElementById('modalTypeDescription').textContent = description;
+            document.getElementById('typeDetailsModal').classList.remove('hidden');
+        }
+        
+        // Close modal
+        function closeModal() {
+            document.getElementById('typeDetailsModal').classList.add('hidden');
+        }
+        
+        // Quiz functionality
+        const quizQuestions = [
+            {
+                question: "Posting a photo of your classmate without permission with comments mocking their appearance",
+                answer: true
+            },
+            {
+                question: "Sending a message to your friend saying you don't like their new shirt",
+                answer: false
+            },
+            {
+                question: "Creating a fake account to repeatedly harass someone",
+                answer: true
+            },
+            {
+                question: "Voting against a classmate's idea in a WhatsApp group",
+                answer: false
+            },
+            {
+                question: "Spreading false rumors about someone on social media",
+                answer: true
+            }
+        ];
+        
+        let currentQuizQuestion = 0;
+        let quizScore = 0;
+        
+        function loadQuizQuestion() {
+            if (currentQuizQuestion < quizQuestions.length) {
+                document.getElementById('quizQuestion').textContent = quizQuestions[currentQuizQuestion].question;
+                document.getElementById('quizProgress').textContent = `Question ${currentQuizQuestion + 1} of ${quizQuestions.length}`;
+            } else {
+                showQuizResult();
+            }
+        }
+        
+        function answerQuiz(userAnswer) {
+            const correctAnswer = quizQuestions[currentQuizQuestion].answer;
+            
+            if (userAnswer === correctAnswer) {
+                quizScore++;
+            }
+            
+            currentQuizQuestion++;
+            loadQuizQuestion();
+        }
+        
+        function showQuizResult() {
+            document.getElementById('quizContainer').classList.add('hidden');
+            
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.classList.remove('hidden');
+            
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = `Excellent! You scored ${percentage}% - You have a good understanding of cyberbullying`;
+            } else if (percentage >= 50) {
+                message = `Good! You scored ${percentage}% - You have some knowledge but can learn more`;
+            } else {
+                message = `You scored ${percentage}% - It's good to learn more about cyberbullying`;
+            }
+            
+            resultDiv.innerHTML = `
+                <h4 class="text-xl font-bold mb-2">Your Result</h4>
+                <p class="mb-4">${message}</p>
+                <button onclick="resetQuiz()" class="bg-white text-indigo-600 px-6 py-2 rounded-lg font-medium">Retake Quiz</button>
+            `;
+        }
+        
+        function resetQuiz() {
+            currentQuizQuestion = 0;
+            quizScore = 0;
+            
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            
+            loadQuizQuestion();
+        }
+        
+        // Pledge button animation
+        const pledgeBtn = document.getElementById('pledgeBtn');
+        pledgeBtn.addEventListener('click', () => {
+            pledgeBtn.innerHTML = 'Thank You! <i class="fas fa-check ml-2"></i>';
+            pledgeBtn.classList.remove('bg-indigo-600');
+            pledgeBtn.classList.add('bg-green-500');
+            
+            const countElement = document.getElementById('pledgeCount');
+            let count = 1243;
+            countElement.innerHTML = `<span class="font-bold text-white">${++count}</span> people have joined the initiative`;
+        });
+        
+        // Story form submission
+        const storyForm = document.getElementById('storyForm');
+        storyForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const storyType = document.getElementById('storyType').value;
+            const storyContent = document.getElementById('storyContent').value;
+            const isAnonymous = document.getElementById('anonymous').checked;
+            
+            if (storyContent.trim() === '') {
+                alert('Please write your experience before sharing');
+                return;
+            }
+            
+            // In a real app, this would send to a server
+            // Here we'll just add it to the page
+            const storiesList = document.getElementById('storiesList');
+            const newStory = document.createElement('div');
+            newStory.className = 'bg-white p-6 rounded-xl shadow-md fade-in';
+            newStory.innerHTML = `
+                <div class="flex items-center mb-3">
+                    <div class="bg-indigo-100 text-indigo-600 rounded-full w-10 h-10 flex items-center justify-center mr-3">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold">${isAnonymous ? '(Anonymous)' : 'New User'}</h4>
+                        <p class="text-sm text-gray-500">Just now</p>
+                    </div>
+                </div>
+                <p class="text-gray-700">${storyContent}</p>
+                <div class="mt-3 flex space-x-2">
+                    <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-thumbs-up"></i> Like</button>
+                    <button class="text-indigo-600 hover:text-indigo-800"><i class="far fa-comment"></i> Comment</button>
+                </div>
+            `;
+            
+            storiesList.insertBefore(newStory, storiesList.firstChild);
+            
+            // Reset form
+            storyForm.reset();
+            alert('Thank you for sharing your story! Your experience has been posted.');
+        });
+        
+        // Initialize quiz
+        loadQuizQuestion();
+    </script>
+</body>
+</html>
